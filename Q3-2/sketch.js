@@ -29,6 +29,7 @@ function draw(){
   if(keyIsDown(SHIFT)){/*シフト押しながらで加速*/
     if(keyIsDown(LEFT_ARROW)){ vx -= a*3 ;}
     if(keyIsDown(RIGHT_ARROW)){ vx += a*3 ;}
+    vx = constrain(vx, -30, 30);
   }else{/*左右移動*/
     if(keyIsDown(LEFT_ARROW)){ vx -= a; }
     if(keyIsDown(RIGHT_ARROW)){ vx += a; }
