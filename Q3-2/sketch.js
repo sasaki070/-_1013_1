@@ -33,18 +33,17 @@ function draw(){
   }else{/*左右移動*/
     if(keyIsDown(LEFT_ARROW)){ vx -= a; }
     if(keyIsDown(RIGHT_ARROW)){ vx += a; }
+    vx = constrain(vx, -20, 20);
   }
 
   //摩擦 　/*ボタンを押していないと減速*/
   if(!keyIsDown(LEFT_ARROW)&&!keyIsDown(RIGHT_ARROW)){ vx *= 0.9; }
 
   // BLANK[2] 重力とジャンプ
-
   //地面にいるときにスペースでジャンプ
   if(y == height*4/5 && keyIsDown(" ")){ vy -= 30;}
-  if(y == height*4/5 && keyIsDown(" ".charCodeAt(0))){ vy -= 30;}
-  if(y == height*4/5 && keyIsDown(UP_ARROW)){ vy -= 30;}
-
+  // if(y == height*4/5 && keyIsDown(" ".charCodeAt(0))){ vy -= 30;}
+  // if(y == height*4/5 && keyIsDown(UP_ARROW)){ vy -= 30;}
 
   //重力
   vy += g;
@@ -56,7 +55,7 @@ function draw(){
   }
 
   //速度の範囲
-  vx = constrain(vx, -20, 20);
+
   vy = constrain(vy, -30, 30);
 
   // 位置を更新
