@@ -41,7 +41,9 @@ function draw(){
 
   //地面にいるときにスペースでジャンプ
   if(y == height*4/5 && keyIsDown(" ")){ vy -= 30;}
-    if(y == height*4/5 && keyIsDown(" ".charCodeAt(0))){ vy -= 30;}
+  if(y == height*4/5 && keyIsDown(" ".charCodeAt(0))){ vy -= 30;}
+  if(y == height*4/5 && keyIsDown(UP_ARROW)){ vy -= 30;}
+
 
   //重力
   vy += g;
