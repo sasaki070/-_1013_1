@@ -26,17 +26,18 @@ function draw(){
   rect(0, groundY, width, height - groundY);
 
   // BLANK[1] キャラクターの左右移動
+
   if(keyIsDown(SHIFT)){/*シフト押しながらで加速*/
     if(keyIsDown(LEFT_ARROW)){ vx -= a*3 ;}
     if(keyIsDown(RIGHT_ARROW)){ vx += a*3 ;}
-    vx = constrain(vx, -30, 30);
+    vx = constrain(vx, -30, 30)
   }else{/*左右移動*/
     if(keyIsDown(LEFT_ARROW)){ vx -= a; }
     if(keyIsDown(RIGHT_ARROW)){ vx += a; }
-    vx = constrain(vx, -20, 20);
+    vx = constrain(vx, -20, 20)
   }
 
-  //摩擦 　/*ボタンを押していないと減速*/
+  //摩擦 /*ボタンを押していないと減速*/
   if(!keyIsDown(LEFT_ARROW)&&!keyIsDown(RIGHT_ARROW)){ vx *= 0.9; }
 
   // BLANK[2] 重力とジャンプ
@@ -46,10 +47,10 @@ function draw(){
   //重力
   vy += g;
 
-  //ヒップドロップ
+  //ヒップドロップとブレーキ
   if(keyIsDown(DOWN_ARROW)){
     vx = 0;
-    vy += g*3;
+    vy += g*4;
   }
 
   //速度の範囲
