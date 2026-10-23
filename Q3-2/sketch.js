@@ -42,8 +42,6 @@ function draw(){
   // BLANK[2] 重力とジャンプ
   //地面にいるときにスペースでジャンプ
   if(y == height*4/5 && keyIsDown(" ")){ vy -= 30;}
-  // if(y == height*4/5 && keyIsDown(" ".charCodeAt(0))){ vy -= 30;}
-  // if(y == height*4/5 && keyIsDown(UP_ARROW)){ vy -= 30;}
 
   //重力
   vy += g;
@@ -55,7 +53,6 @@ function draw(){
   }
 
   //速度の範囲
-
   vy = constrain(vy, -30, 30);
 
   // 位置を更新
