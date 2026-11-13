@@ -4,17 +4,25 @@ function setup(){
   drawCalendar(2025, 10);
 }
 
+
 function drawCalendar(y, m){
   for(let i = 0; i < 7; i++){
-    const x = i * width / 7;
+    const x = i * width / 7 ;
     const y = 20;
     stroke(255);
     text(dayOfWeekAsString(i), x, y);
   }
-
   let dow = dayOfWeek(y, m, 1);
+  let k=2;
   for(let d = 1; d <= daysInMonth(y, m); d++){
     // BLANK[3] まずは daysInYear, dayOfWeek を作ろう
+    if(dow==0){fill(255,0,0)}
+      else if(dow==6){fill(0,0,255)}
+      else{fill(0)}
+    text(d,dow*width/7,20*k);
+    if(dow==6){k +=1;}
+    dow +=1; 
+    dow %= 7;
   }
 }
 
@@ -24,6 +32,13 @@ function isLeapYear(y){
 
 function daysInYear(y){
   // BLANK[1] hint: 閏年なら366日、そうでなければ365日
+  let days;
+  if(isLeapYear(y)){/*うるう年のとき*/
+    days = 366;
+  }else{/*うるう年じゃないとき*/
+    days = 365;
+  }
+  return days
 }
 
 function daysInMonth(y, m){
@@ -48,6 +63,15 @@ function dayOfYear(y, m, d){
 
 function dayOfWeek(y, m, d){
   // BLANK[2] hint: 曜日がわかる日からの経過日数を求め7の剰余を取る　たとえば1970年1月1日木曜日
+  let elapsed_days=0, i, dayis;
+  const end_year = y;
+  for(i = 1970; i< end_year; i++){
+    elapsed_days += daysInYear(i);
+  }
+  elapsed_days += dayOfYear(y,m,d);
+  elapsed_days += 3; //補正 木(0)➡日（0）
+  dayis = elapsed_days % 7;
+  return dayis;
 }
 
 function dayOfWeekAsString(dow){
