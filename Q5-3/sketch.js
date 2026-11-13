@@ -6,9 +6,10 @@ function setup(){
 
 
 function drawCalendar(y, m){
+  text(y+"年"+m+"月",5,15)
   for(let i = 0; i < 7; i++){
     const x = i * width / 7 ;
-    const y = 20;
+    const y = 30;
     stroke(255);
     text(dayOfWeekAsString(i), x, y);
   }
@@ -19,7 +20,7 @@ function drawCalendar(y, m){
     if(dow==0){fill(255,0,0)}
       else if(dow==6){fill(0,0,255)}
       else{fill(0)}
-    text(d,dow*width/7,20*k);
+    text(d,dow*width/7,20*k+10);
     if(dow==6){k +=1;}
     dow +=1; 
     dow %= 7;
