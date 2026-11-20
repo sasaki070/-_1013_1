@@ -18,9 +18,6 @@ function setup() {
 }
 
 function draw() {
-fill(255)
-text(n,10,10)
-
   background(0, 40);
   fill(R,G,B);
   shape_maker(x,y,n,angle_add, r);
@@ -77,5 +74,7 @@ function windowResized(){
 function mousePressed() {
   n = 3;    // クリックで三角形に戻る
   r = 100;  // 大きさもリセット
+  vx = 2;
+  vy = 2;
   background(0); // 画面を真っ暗にリセット
 }
