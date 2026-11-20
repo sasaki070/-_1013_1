@@ -9,7 +9,7 @@ function setup() {
 
   x = width / 2;
   y = height / 2;
-  array = [-1,-1/2,1,2,1]
+  array = [-1,-1/2,1,1/2,1]
   let k = round(random(0,4))
   vx = array[k]*2;
   k=round(random(0,4))
